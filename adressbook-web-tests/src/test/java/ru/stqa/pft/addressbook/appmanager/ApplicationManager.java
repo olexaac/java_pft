@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Админ on 22.02.2017.
  */
 public class ApplicationManager {
+
   WebDriver wd;
 
   private ContactHelper contactHelper;
@@ -51,29 +51,11 @@ public class ApplicationManager {
     return groupHelper;
   }
 
-  public NavigationHelper getNavigationHelper() {
-    return navigationHelper;
-  }
-
   public ContactHelper getContactHelper() {
     return contactHelper;
   }
 
-  public void updateContactModification() {
-      wd.findElement(By.cssSelector("input[value=\"Update\"]")).click();
-  }
-
-  public void initContactModification() {
-      wd.findElement(By.cssSelector("a[href^=\"edit.php?id\"]")).click();
-  }
-
-  public void selectContact() {
-      if (!wd.findElement(By.name("selected[]")).isSelected()) {
-          wd.findElement(By.name("selected[]")).click();
-      }
-  }
-
-  public void gotoContactPage() {
-      wd.findElement(By.linkText("home")).click();
+  public NavigationHelper getNavigationHelper() {
+    return navigationHelper;
   }
 }

@@ -8,6 +8,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
  * Created by Админ on 18.04.2017.
  */
 public class ContactHelper {
+
   private WebDriver wd;
 
   public ContactHelper(WebDriver wd) {
@@ -51,5 +52,19 @@ public class ContactHelper {
 
   public void initContactCreation() {
       wd.findElement(By.linkText("add new")).click();
+  }
+
+  public void updateContactModification() {
+      wd.findElement(By.cssSelector("input[value=\"Update\"]")).click();
+  }
+
+  public void initContactModification() {
+      wd.findElement(By.cssSelector("a[href^=\"edit.php?id\"]")).click();
+  }
+
+  public void selectContact() {
+      if (!wd.findElement(By.name("selected[]")).isSelected()) {
+          wd.findElement(By.name("selected[]")).click();
+      }
   }
 }
