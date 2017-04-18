@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -56,5 +57,23 @@ public class ApplicationManager {
 
   public ContactHelper getContactHelper() {
     return contactHelper;
+  }
+
+  public void updateContactModification() {
+      wd.findElement(By.cssSelector("input[value=\"Update\"]")).click();
+  }
+
+  public void initContactModification() {
+      wd.findElement(By.cssSelector("a[href^=\"edit.php?id\"]")).click();
+  }
+
+  public void selectContact() {
+      if (!wd.findElement(By.name("selected[]")).isSelected()) {
+          wd.findElement(By.name("selected[]")).click();
+      }
+  }
+
+  public void gotoContactPage() {
+      wd.findElement(By.linkText("home")).click();
   }
 }
